@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>ÊXODO</title>
+
+</head>
+
+<body>
+    <header>
+        <div class="header-left">
+            <nav id="primary-nav" class="nav" role="navigation" aria-label="Menu principal">
+                <a href="index.html" id="home-link">Home</a>
+                <div class="has-dropdown">
+                    <a href="fatos.html" id="fatos-link">Fatos Bíblicos</a>
+                    <div id="fatos-dropdown" class="dropdown" role="menu" aria-label="Categorias">
+                        <!-- categorias populadas via script.js -->
+                    </div>
+                </div>
+                <a href="index.html#sobre" id="sobre-link">Sobre</a>
+            </nav>
+        </div>
+
+        <h1 class="site-title">ÊXODO</h1>
+    </header>
+
+    <main>
+        <section class="site-description container my-4">
+            <div class="row">
+                <div class="col-12">
+                    <h2>ÊXODO — Sua Enciclopédia Bíblica Interativa</h2>
+                    <p>Explore a Bíblia de uma forma simples, visual e intuitiva. Aqui você encontra uma coleção
+                        organizada de pessoas, lugares, eventos, grupos, conceitos e anjos mencionados nas Escrituras,
+                        tudo explicado com clareza e respaldado por referências bíblicas.</p>
+                    <p>Navegue pelas categorias, utilize a busca inteligente e descubra mapas, curiosidades e
+                        informações essenciais para estudos, ensino, pesquisa ou aprofundamento pessoal.</p>
+                    <p>Aprenda, explore e mergulhe na história bíblica.</p>
+                </div>
+            </div>
+        </section>
+        <div class="container my-4"> <!-- Added Bootstrap container with margin-top/bottom -->
+            <div class="row"> <!-- Added Bootstrap row -->
+                <div class="col-12"> <!-- Added Bootstrap column to take full width -->
+                    <section class="card-container">
+                        <!-- Cards serão inseridos aqui pelo script -->
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section id="sobre" class="about-exodo container my-4">
+        <div class="row">
+            <div class="col-12">
+                <p>O <em>ÊXODO</em> é um projeto desenvolvido com o propósito de tornar as histórias, personagens e
+                    ensinamentos da Bíblia mais acessíveis para todos — desde estudantes e pesquisadores até pessoas que
+                    desejam simplesmente aprender mais sobre as Escrituras.</p>
+                <p>A ideia surgiu durante o curso Imersão Dev da Alura em parceria com o Google Gemini, onde o conceito
+                    inicial foi sendo moldado até se transformar em uma plataforma interativa, organizada e intuitiva.
+                </p>
+                <p>O nome EXODO carrega um significado pessoal importante: representa movimento, descoberta e saída rumo
+                    ao entendimento. Assim como o livro do Êxodo narra uma jornada de libertação e conhecimento, este
+                    site foi criado com a intenção de guiar o usuário através da narrativa bíblica, facilitando o acesso
+                    às informações, mapas, conceitos, eventos e personagens de forma clara e estruturada.</p>
+                <p>Aqui, cada entrada é apresentada com significado, contexto e referência bíblica, permitindo uma
+                    experiência de estudo simples e objetiva.</p>
+                <p>EXODO é, acima de tudo, uma ponte — um caminho que conecta curiosidade ao conhecimento e transforma o
+                    estudo da Bíblia em algo acessível, organizado e envolvente.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-location">Brasil</div>
+        <ul class="footer-links">
+            <li><a href="https://www.instagram.com/euthiagoluis__/" target="_blank"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="currentColor">
+                        <path
+                            d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.055 1.805.249 2.227.415.485.19.882.46 1.28.858.398.398.668.795.858 1.28.166.422.36 1.057.415 2.227.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.055 1.17-.249 1.805-.415 2.227a3.496 3.496 0 0 1-.858 1.28c-.398.398-.795.668-1.28.858-.422.166-1.057.36-2.227.415-1.265.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.055-1.805-.249-2.227-.415a3.496 3.496 0 0 1-1.28-.858 3.496 3.496 0 0 1-.858-1.28c-.166-.422-.36-1.057-.415-2.227-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.055-1.17.249-1.805.415-2.227.19-.485.46-.882.858-1.28.398-.398.795-.668 1.28-.858.422-.166 1.057-.36 2.227-.415A90.6 90.6 0 0 1 12 2.163m0-2.163c-3.259 0-3.667.014-4.947.072-1.325.06-2.163.31-2.913.698a5.64 5.64 0 0 0-2.022 1.586A5.64 5.64 0 0 0 .73 6.93C.342 7.68.092 8.518.032 9.843.014 10.333 0 10.74 0 12s.014 1.667.032 2.157c.06 1.325.31 2.163.698 2.913a5.64 5.64 0 0 0 1.586 2.022A5.64 5.64 0 0 0 6.93 23.27c.75.388 1.588.638 2.913.698 1.28.058 1.687.072 4.947.072s3.667-.014 4.947-.072c1.325-.06 2.163-.31 2.913-.698a5.64 5.64 0 0 0 2.022-1.586 5.64 5.64 0 0 0 1.586-2.022c.388-.75.638-1.588.698-2.913.058-1.28.072-1.687.072-4.947s-.014-3.667-.072-4.947c-.06-1.325-.31-2.163-.698-2.913a5.64 5.64 0 0 0-1.586-2.022A5.64 5.64 0 0 0 17.07.73c-.75-.388-1.588-.638-2.913-.698C15.667.014 15.26 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z" />
+                    </svg></a></li>
+            <li><a href="https://github.com/Thiago-Dev021" target="_blank"><svg xmlns="http://www.w3.org/2000/svg"
+                        width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg></a></li>
+        </ul>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
