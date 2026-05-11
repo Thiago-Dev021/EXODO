@@ -68,10 +68,18 @@ function renderizarMapas(lista) {
         btn.type = 'button';
         btn.className = 'map-thumb';
         btn.title = m.title || '';
-        btn.innerHTML = `
-            <img src="${m.file}" alt="${m.title || 'Mapa'}" loading="lazy" />
-            <div class="map-thumb-label">${m.title || ''}</div>
-        `;
+
+        const img = document.createElement('img');
+        img.src = encodeURI(m.file);
+        img.alt = m.title || 'Mapa';
+        img.loading = 'lazy';
+
+        const label = document.createElement('div');
+        label.className = 'map-thumb-label';
+        label.textContent = m.title || '';
+
+        btn.appendChild(img);
+        btn.appendChild(label);
         btn.addEventListener('click', () => openMapModal(m));
         grid.appendChild(btn);
     });
@@ -84,7 +92,7 @@ function openMapModal(mapObj) {
     const img = document.getElementById('map-modal-img');
     const title = document.getElementById('map-modal-title');
     if (!modal || !img) return;
-    img.src = mapObj.file;
+    img.src = encodeURI(mapObj.file);
     img.alt = mapObj.title || 'Mapa';
     title.textContent = mapObj.title || '';
     modal.style.display = 'block';
