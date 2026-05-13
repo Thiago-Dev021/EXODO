@@ -42,6 +42,41 @@
                 </button>
             </div>
         </div>
+        <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+	createChat({
+	webhookUrl: 'https://thiago-dev021.app.n8n.cloud/webhook/fb3a9cc6-d580-40ae-88b6-75891bf3fedc/chat',
+	webhookConfig: {
+		method: 'POST',
+		headers: {}
+	},
+	target: '#n8n-chat',
+	mode: 'window',
+	chatInputKey: 'chatInput',
+	chatSessionKey: 'sessionId',
+	loadPreviousSession: true,
+	metadata: {},
+	showWelcomeScreen: false,
+	defaultLanguage: 'pt',
+	initialMessages: [
+		'Olá! 👋',
+		'Eu sou Avivaly, uma assistente virtual cristã!',
+        'Como posso ajudar você?'
+	],
+	i18n: {
+		pt: {
+			title: 'Olá! 👋',
+			subtitle: "Estou aqui para ajudar você.",
+			footer: '',
+			getStarted: 'Nova Conversa',
+			inputPlaceholder: 'Digite sua pergunta...',
+		},
+	},
+	enableStreaming: false,
+});
+</script>
     </header>
 
     <main>
