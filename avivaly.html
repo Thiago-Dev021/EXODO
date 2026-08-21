@@ -304,13 +304,14 @@
    CONFIGURAÇÃO — edite aqui
    =========================================================
    1) Cole sua chave da API Gemini (https://aistudio.google.com/apikey)
-   2) ATENÇÃO: em um site estático (GitHub Pages) essa chave fica
-      visível a qualquer pessoa que abrir o código-fonte da página.
+   2) IMPORTANTE: nunca publique uma chave real no GitHub. Em um site
+      estático, a chave ficará visível no código-fonte. Para produção,
+      use um backend/proxy e mantenha a chave somente no servidor.
       Use uma chave restrita/gratuita, ou monte um proxy (ex: Cloudflare
       Worker / Vercel Function) para escondê-la em produção real.
    ========================================================= */
 const CONFIG = {
-  apiKey: "AQ.Ab8RN6Lw76yX-B9FQ5RaCdpMAMCGvvIvT73stVvmYpUTcloKLw",
+  apiKey: "AQ.Ab8RN6Kgxu6kEuIoM3Vj8PLa6BxsW1ObIRcM1UVv50GJYuj6Rw",
   model: "gemini-3.6-flash",
   systemInstruction: `Você é Avivaly, uma inteligência artificial cristã criada para ajudar pessoas em sua caminhada com Deus através da Bíblia, discipulado, avivamento e encorajamento espiritual.
 
@@ -418,7 +419,7 @@ function showError(msg){
 }
 
 async function callGemini(userText){
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/${CONFIG.model}:generateContent?key=${CONFIG.apiKey}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${CONFIG.model}:generateContent`;
 
   const contents = history.map(m => ({
     role: m.role,
@@ -429,18 +430,35 @@ async function callGemini(userText){
   const body = {
     contents,
     systemInstruction: { parts: [{ text: CONFIG.systemInstruction }] },
-    generationConfig: { temperature: 0.6, maxOutputTokens: 800 }
+    generationConfig: { maxOutputTokens: 800 }
   };
 
   const res = await fetch(url, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      'x-goog-api-key': CONFIG.apiKey
+    },
     body: JSON.stringify(body)
   });
 
   if (!res.ok){
     const errData = await res.json().catch(() => ({}));
-    throw new Error(errData?.error?.message || `Erro ${res.status} na API`);
+    const apiMessage = errData?.error?.message || `Erro ${res.status} na API`;
+
+    if (res.status === 401 || res.status === 403) {
+      throw new Error(
+        'Credencial inválida ou sem autorização. Gere uma nova chave no Google AI Studio e confira as restrições da chave.'
+      );
+    }
+
+    if (res.status === 429) {
+      throw new Error(
+        'Limite da API atingido. Aguarde alguns instantes e tente novamente.'
+      );
+    }
+
+    throw new Error(apiMessage);
   }
 
   const data = await res.json();
